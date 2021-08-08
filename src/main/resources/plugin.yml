@@ -1,0 +1,9 @@
+name: Renter
+version: ${project.version}
+main: me.TahaCheji.Main
+api-version: 1.16
+authors: [ TahaCheji ]
+description: The Renter Plugin
+
+commands:
+  Renter:
