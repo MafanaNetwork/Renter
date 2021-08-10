@@ -44,10 +44,6 @@ public class NBTUtils {
         return nbt.getItem();
     }
 
-
-
-
-
     public static String getString(ItemStack is, String key) {
         return new NBTItem(is).getString(key);
     }

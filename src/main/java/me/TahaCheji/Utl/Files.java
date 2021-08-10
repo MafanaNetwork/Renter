@@ -29,8 +29,16 @@ public class Files {
 		String version = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3];
 
 		File playerData = new File("plugins/Renter/playerData");
+		File listingData = new File("plugins/Renter/listings");
+		File loanedItems = new File("plugins/Renter/loanedItems");
 		if(!playerData.exists()) {
 			playerData.mkdir();
+		}
+		if(!loanedItems.exists()) {
+			loanedItems.mkdir();
+		}
+		if(!listingData.exists()) {
+			listingData.mkdir();
 		}
 		
 		loadFiles();
