@@ -25,7 +25,7 @@ public class BuyListedItemGui implements InventoryHolder {
         ItemStack item = new ItemStack(Material.PAPER);
         ItemMeta meta = item.getItemMeta();
         List<String> lore = new ArrayList<>();
-        meta.setDisplayName("Listing Info");
+        meta.setDisplayName(ChatColor.DARK_PURPLE + "Listing Info");
         lore.add("--------------------------");
         lore.add(ChatColor.GOLD + "Price: $" + listing.getPrice());
         lore.add(ChatColor.GOLD + "Seller: " + listing.getPlayer().getDisplayName());

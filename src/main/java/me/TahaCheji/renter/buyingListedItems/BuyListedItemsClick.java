@@ -52,7 +52,7 @@ public class BuyListedItemsClick implements Listener {
                         player.closeInventory();
                         LoanedItem item = new LoanedItem(listing.getPlayer(), player, itemStack, listing.getLoanTime());
                         item.saveLoanedItem();
-                        player.sendMessage(ChatColor.GREEN + "You have rented " + item.getLoanedItem().getItemMeta().getDisplayName() + " from " + item.getFrom().getDisplayName() + " thank you for using Renter.");
+                        player.sendMessage(ChatColor.GREEN + "You have rented " + item.getLoanedItem().getItemMeta().getDisplayName() + ChatColor.GREEN + " from " + item.getFrom().getDisplayName() + ChatColor.GREEN + " thank you for using Renter.");
                         //buy history
                         System.out.println("x");
                     }

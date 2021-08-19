@@ -41,15 +41,15 @@ public class LoanedItem {
         if(from.isOnline() && to.isOnline()) {
             from.getInventory().addItem(loanedItem);
             to.getInventory().removeItem(loanedItem);
-            from.sendMessage(ChatColor.GOLD + "The item you have loaned out to " + to.getDisplayName() + " has returned back to you.");
-            to.sendMessage(ChatColor.RED + "The item you were renting has been returned to " + from.getDisplayName() + " thank you for using Renter.");
+            from.sendMessage(ChatColor.GOLD + "The item you have loaned out to " + to.getDisplayName() + ChatColor.GOLD + " has returned back to you.");
+            to.sendMessage(ChatColor.RED + "The item you were renting has been returned to " + from.getDisplayName() + ChatColor.RED + " thank you for using Renter.");
         } else if (from.isOnline() && !to.isOnline()) {
             from.getInventory().addItem(loanedItem);
-            from.sendMessage(ChatColor.GOLD + "The item you have loaned out to " + to.getDisplayName() + " has returned back to you.");
+            from.sendMessage(ChatColor.GOLD + "The item you have loaned out to " + to.getDisplayName() + ChatColor.GOLD + " has returned back to you.");
             //change there inventory file
          } else if(!from.isOnline() && to.isOnline()) {
             to.getInventory().removeItem(loanedItem);
-            to.sendMessage(ChatColor.RED + "The item you were renting has been returned to " + from.getDisplayName() + " thank you for using Renter.");
+            to.sendMessage(ChatColor.RED + "The item you were renting has been returned to " + from.getDisplayName() + ChatColor.RED + " thank you for using Renter.");
             //chage there inveotry file
         } else if (!from.isOnline() && to.isOnline()) {
        //both change file
