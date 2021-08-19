@@ -28,10 +28,14 @@ public class Files {
 		}
 		
 		File playerData = new File("plugins/Renter/playerData");
+		File st = new File("plugins/Renter/storageStash");
 		File listingData = new File("plugins/Renter/listings");
 		File loanedItems = new File("plugins/Renter/loanedItems");
 		if(!playerData.exists()) {
 			playerData.mkdir();
+		}
+		if(!st.exists()) {
+			st.mkdir();
 		}
 		if(!loanedItems.exists()) {
 			loanedItems.mkdir();

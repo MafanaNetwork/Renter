@@ -1,6 +1,7 @@
 package me.TahaCheji.data.loan;
 
 import me.TahaCheji.data.ListingData;
+import me.TahaCheji.data.stash.StorageStash;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -37,14 +38,14 @@ public class LoanedItem {
         new LoanedItemData().saveLoanedItem(this);
     }
 
-    public void giveItemsBack(Player from, Player to) {
+    public void giveItemsBack(Player from, Player to) throws IOException {
+        StorageStash storageStash = new StorageStash(loanedItem, from);
+        storageStash.saveStorageStash();
         if(from.isOnline() && to.isOnline()) {
-            from.getInventory().addItem(loanedItem);
             to.getInventory().removeItem(loanedItem);
             from.sendMessage(ChatColor.GOLD + "The item you have loaned out to " + to.getDisplayName() + ChatColor.GOLD + " has returned back to you.");
             to.sendMessage(ChatColor.RED + "The item you were renting has been returned to " + from.getDisplayName() + ChatColor.RED + " thank you for using Renter.");
         } else if (from.isOnline() && !to.isOnline()) {
-            from.getInventory().addItem(loanedItem);
             from.sendMessage(ChatColor.GOLD + "The item you have loaned out to " + to.getDisplayName() + ChatColor.GOLD + " has returned back to you.");
             //change there inventory file
          } else if(!from.isOnline() && to.isOnline()) {

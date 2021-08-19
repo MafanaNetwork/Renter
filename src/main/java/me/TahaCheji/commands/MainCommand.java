@@ -2,6 +2,7 @@ package me.TahaCheji.commands;
 
 import me.TahaCheji.data.Listing;
 import me.TahaCheji.renter.listedItems.ListedItemsGui;
+import me.TahaCheji.renter.menu.MenuDisplayGui;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,6 +18,10 @@ public class MainCommand implements CommandExecutor {
         if(label.equalsIgnoreCase("Renting")) {
             if(args.length == 0){
                 return true;
+            }
+            if(args[0].equalsIgnoreCase("menu")) {
+                Player player = (Player) sender;
+                player.openInventory(new MenuDisplayGui(player).getInventory());
             }
             if(args[0].equalsIgnoreCase("list")){
                 if(args.length == 1){

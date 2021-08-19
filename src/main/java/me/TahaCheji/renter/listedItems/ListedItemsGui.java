@@ -17,6 +17,7 @@ import java.util.List;
 public class ListedItemsGui implements InventoryHolder {
 
     Inventory gui;
+    private List<ItemStack> itemStacks = new ArrayList<>();
 
     public ListedItemsGui() {
         gui = Bukkit.createInventory(null, 54, ChatColor.GRAY + "" + ChatColor.BOLD + "Listed Weapons");
@@ -45,7 +46,16 @@ public class ListedItemsGui implements InventoryHolder {
             item.setItemMeta(itemMeta);
            item = NBTUtils.setBoolean(item, "listed", true);
            item = NBTUtils.setString(item, "ListUUID", listing.getUuid().toString());
-            gui.addItem(item);
+           itemStacks.add(item);
+            for(int i = 10; i < 43; i++) {
+                if(i == 17 || i == 26 || i == 35 || i == 18 || i == 27 || i == 36) {
+                    continue;
+                }
+                if(i >= itemStacks.size() + 10) {
+                    break;
+                }
+                gui.setItem(i, itemStacks.get(i - 10));
+            }
         }
         for (int emptySlot = 0; emptySlot < gui.getSize(); emptySlot++) {
             if (gui.getItem(emptySlot) == null || gui.getItem(emptySlot).getType().equals(Material.AIR)) {
