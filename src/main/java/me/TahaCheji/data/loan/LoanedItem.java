@@ -1,6 +1,7 @@
 package me.TahaCheji.data.loan;
 
 import me.TahaCheji.data.ListingData;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -12,7 +13,7 @@ public class LoanedItem {
     private final Player from;
     private final Player to;
     private final ItemStack loanedItem;
-    private final int loanTime;
+    private int loanTime;
     private final UUID uuid;
 
     public LoanedItem(Player from, Player to, ItemStack loanedItem, int loanTime) {
@@ -37,8 +38,29 @@ public class LoanedItem {
     }
 
     public void giveItemsBack(Player from, Player to) {
-        //TODO
+        if(from.isOnline() && to.isOnline()) {
+            from.getInventory().addItem(loanedItem);
+            to.getInventory().removeItem(loanedItem);
+            from.sendMessage(ChatColor.GOLD + "The item you have loaned out to " + to.getDisplayName() + " has returned back to you.");
+            to.sendMessage(ChatColor.RED + "The item you were renting has been returned to " + from.getDisplayName() + " thank you for using Renter.");
+        } else if (from.isOnline() && !to.isOnline()) {
+            from.getInventory().addItem(loanedItem);
+            from.sendMessage(ChatColor.GOLD + "The item you have loaned out to " + to.getDisplayName() + " has returned back to you.");
+            //change there inventory file
+         } else if(!from.isOnline() && to.isOnline()) {
+            to.getInventory().removeItem(loanedItem);
+            to.sendMessage(ChatColor.RED + "The item you were renting has been returned to " + from.getDisplayName() + " thank you for using Renter.");
+            //chage there inveotry file
+        } else if (!from.isOnline() && to.isOnline()) {
+       //both change file
+        }
+        removeLoanedItem();
     }
+
+    public void changeLogInsTime(int i) {
+       this.loanTime = loanTime - i;
+    }
+
 
     public void removeLoanedItem() {
         LoanedItemData.removeLoanedItem(this);

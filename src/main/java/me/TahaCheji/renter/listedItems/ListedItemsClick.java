@@ -32,6 +32,7 @@ public class ListedItemsClick implements Listener {
                 Player player = (Player) e.getWhoClicked();
                 player.openInventory(new BuyListedItemGui(listing, player).getInventory());
             } else {
+                //todo
             }
         }
     }

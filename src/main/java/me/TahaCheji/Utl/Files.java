@@ -26,8 +26,7 @@ public class Files {
 		if(!configFile.exists()) {
 			Main.getInstance().saveDefaultConfig();
 		}
-		String version = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3];
-
+		
 		File playerData = new File("plugins/Renter/playerData");
 		File listingData = new File("plugins/Renter/listings");
 		File loanedItems = new File("plugins/Renter/loanedItems");

@@ -26,7 +26,7 @@ public class ListedItemsGui implements InventoryHolder {
         newmeta.setDisplayName(ChatColor.GRAY + "");
         newmeta.setLore(lore);
         newItem.setItemMeta(newmeta);
-
+        //Set up for the items to look nice
         for(Listing listing : ListingData.getAllSavedListing())  {
             ItemStack item = listing.getItem();
             ItemMeta itemMeta = item.getItemMeta();
@@ -37,7 +37,7 @@ public class ListedItemsGui implements InventoryHolder {
             itemLore.add(ChatColor.DARK_GRAY + "");
             itemLore.add("------------------------");
             itemLore.add(ChatColor.DARK_GRAY + "Price: $" + listing.getPrice());
-            itemLore.add(ChatColor.DARK_GRAY + "Loan Time: " + listing.getLoanTime() + "h");
+            itemLore.add(ChatColor.DARK_GRAY + "Login Time: " + listing.getLoanTime() + "x");
             itemLore.add(ChatColor.DARK_GRAY + "Seller: " + listing.getPlayer().getDisplayName());
             itemLore.add(ChatColor.DARK_GRAY + "");
             itemLore.add(ChatColor.DARK_GRAY + "Click to buy!");

@@ -9,16 +9,19 @@ import me.TahaCheji.data.loan.LoanedItem;
 import me.TahaCheji.data.loan.LoanedItemData;
 import me.TahaCheji.renter.listedItems.ListedItemsGui;
 import net.milkbowl.vault.economy.Economy;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.io.IOException;
+
 public class BuyListedItemsClick implements Listener {
 
     @EventHandler
-    public void onClick(InventoryClickEvent e) {
+    public void onClick(InventoryClickEvent e) throws IOException {
         if (!e.getView().getTitle().contains("Listing")) {
             return;
         }
@@ -40,12 +43,18 @@ public class BuyListedItemsClick implements Listener {
                 for (Listing listing : ListingData.getAllSavedListing()) {
                     if (new NBTItem(e.getCurrentItem()).getString("ListUUID").contains(listing.getUuid().toString())) {
                         economy.withdrawPlayer(player, listing.getPrice());
+                        economy.depositPlayer(listing.getPlayer(), listing.getPrice());
                         ItemStack itemStack = listing.getItem();
                         itemStack = NBTUtils.setBoolean(itemStack, "Loaned", true);
                         itemStack = NBTUtils.setDouble(itemStack, "LoanTime", listing.getLoanTime());
                         player.getInventory().addItem(itemStack);
                         listing.removeListing();
-                        new LoanedItem(listing.getPlayer(), player, itemStack, listing.getLoanTime());
+                        player.closeInventory();
+                        LoanedItem item = new LoanedItem(listing.getPlayer(), player, itemStack, listing.getLoanTime());
+                        item.saveLoanedItem();
+                        player.sendMessage(ChatColor.GREEN + "You have rented " + item.getLoanedItem().getItemMeta().getDisplayName() + " from " + item.getFrom().getDisplayName() + " thank you for using Renter.");
+                        //buy history
+                        System.out.println("x");
                     }
                 }
             }
