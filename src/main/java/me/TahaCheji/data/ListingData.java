@@ -48,6 +48,23 @@ public class ListingData {
         return listingArrayList;
     }
 
+    public static List<Listing> getAllSavedListing(Player player) {
+        List<Listing> listingArrayList = new ArrayList<>();
+        //loop all the yml in the listings folder
+        File dataFolder = new File("plugins/Renter/listings");
+        File[] files = dataFolder.listFiles();
+        for(File file : files) {
+            FileConfiguration pD = YamlConfiguration.loadConfiguration(file);
+            UUID uuid = UUID.fromString(pD.getString("data.player"));
+            if(uuid.toString().contains(player.getUniqueId().toString())) {
+                UUID newUuid = UUID.fromString(pD.getString("data.uuid"));
+                Listing item = new Listing(Bukkit.getPlayer(uuid), pD.getItemStack("data.item"), pD.getInt("data.price"), pD.getInt("data.loanTime"), newUuid);
+                listingArrayList.add(item);
+            }
+        }
+        return listingArrayList;
+    }
+
     public static void removeAllListings() {
         File dataFolder = new File("plugins/Renter/listings");
         File[] files = dataFolder.listFiles();

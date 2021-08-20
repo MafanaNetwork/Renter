@@ -63,13 +63,15 @@ public class MenuDisplayGui implements InventoryHolder {
         }
     }
 
-    public ItemStack renterInfo() {
+    public ItemStack renterInfo(Player player) {
         ItemStack item = new ItemStack(Material.PAPER);
         ItemMeta meta = item.getItemMeta();
         List<String> lore = new ArrayList<>();
         meta.setDisplayName(ChatColor.GOLD + "Renter Info");
         lore.add("--------------------------");
-        lore.add(ChatColor.GOLD + "A place where you can rent items to players!");
+        for(Listing listing : ListingData.getAllSavedListing(player)) {
+            lore.add(ChatColor.DARK_GRAY + "-" + listing.getItem().getItemMeta().getDisplayName() + ChatColor.DARK_GRAY + " x" + listing.getItem().getAmount());
+        }
         lore.add("--------------------------");
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -100,7 +102,7 @@ public class MenuDisplayGui implements InventoryHolder {
         //Set up for the items to look nice
         gui.setItem(19, openListedItems());
         gui.setItem(22, storageStash(player));
-        gui.setItem(25, renterInfo());
+        gui.setItem(25, renterInfo(player));
         gui.setItem(40, close());
         for (int emptySlot = 0; emptySlot < gui.getSize(); emptySlot++) {
             if (gui.getItem(emptySlot) == null || gui.getItem(emptySlot).getType().equals(Material.AIR)) {
