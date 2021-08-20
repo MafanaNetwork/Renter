@@ -1,9 +1,8 @@
 package me.TahaCheji.renter.buyingListedItems;
 
 import me.TahaCheji.Main;
-import me.TahaCheji.Utl.NBTUtils;
-import me.TahaCheji.data.Listing;
-import me.TahaCheji.data.ListingData;
+import me.TahaCheji.utl.NBTUtils;
+import me.TahaCheji.data.list.Listing;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

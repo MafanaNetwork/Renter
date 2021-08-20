@@ -1,7 +1,6 @@
 package me.TahaCheji.data.loan;
 
 import me.TahaCheji.Main;
-import me.TahaCheji.data.Listing;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

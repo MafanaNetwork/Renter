@@ -1,4 +1,4 @@
-package me.TahaCheji.Utl;
+package me.TahaCheji.utl;
 
 import org.bukkit.ChatColor;
 

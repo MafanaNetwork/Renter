@@ -1,6 +1,5 @@
 package me.TahaCheji.data.loan;
 
-import me.TahaCheji.data.ListingData;
 import me.TahaCheji.data.stash.StorageStash;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

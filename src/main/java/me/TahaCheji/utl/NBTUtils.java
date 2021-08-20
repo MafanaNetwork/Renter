@@ -1,4 +1,4 @@
-package me.TahaCheji.Utl;
+package me.TahaCheji.utl;
 
 import de.tr7zw.nbtapi.NBTCompound;
 import de.tr7zw.nbtapi.NBTEntity;

@@ -1,6 +1,5 @@
-package me.TahaCheji.data;
+package me.TahaCheji.data.list;
 
-import me.TahaCheji.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;

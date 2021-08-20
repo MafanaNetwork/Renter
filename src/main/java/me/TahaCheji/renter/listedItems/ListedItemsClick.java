@@ -1,8 +1,8 @@
 package me.TahaCheji.renter.listedItems;
 
 import de.tr7zw.nbtapi.NBTItem;
-import me.TahaCheji.data.Listing;
-import me.TahaCheji.data.ListingData;
+import me.TahaCheji.data.list.Listing;
+import me.TahaCheji.data.list.ListingData;
 import me.TahaCheji.renter.buyingListedItems.BuyListedItemGui;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

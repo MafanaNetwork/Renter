@@ -1,6 +1,6 @@
 package me.TahaCheji.commands;
 
-import me.TahaCheji.data.Listing;
+import me.TahaCheji.data.list.Listing;
 import me.TahaCheji.renter.listedItems.ListedItemsGui;
 import me.TahaCheji.renter.menu.MenuDisplayGui;
 import org.bukkit.Material;

@@ -2,11 +2,10 @@ package me.TahaCheji.renter.buyingListedItems;
 
 import de.tr7zw.nbtapi.NBTItem;
 import me.TahaCheji.Main;
-import me.TahaCheji.Utl.NBTUtils;
-import me.TahaCheji.data.Listing;
-import me.TahaCheji.data.ListingData;
+import me.TahaCheji.utl.NBTUtils;
+import me.TahaCheji.data.list.Listing;
+import me.TahaCheji.data.list.ListingData;
 import me.TahaCheji.data.loan.LoanedItem;
-import me.TahaCheji.data.loan.LoanedItemData;
 import me.TahaCheji.renter.listedItems.ListedItemsGui;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
